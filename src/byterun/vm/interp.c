@@ -2,6 +2,7 @@
 #include <setjmp.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #ifdef __PC__
 #include <stdlib.h>
 #endif
@@ -2489,7 +2490,9 @@ extern const char **global_argv; // used by simulator
 #endif
 
 int main(int argc, const char **argv) {
+  clock_t begin, end;
 #ifdef __PC__
+  begin = clock();
   global_argv = argv;
 #endif
 
@@ -2534,6 +2537,11 @@ DDRB=0b11111111;
   interp();
 
 
+#ifdef __PC__
+  end = clock();
+  printf("Time: %f s\n", ((double)(end-begin) / CLOCKS_PER_SEC));
+#endif
+  
 #if defined(__PC__) && DEBUG >= 2
   printf("# of instructions =%d\n", cpt_instr);
 #endif
