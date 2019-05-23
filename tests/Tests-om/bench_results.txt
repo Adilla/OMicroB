@@ -1,0 +1,37 @@
+Prog		Params		PC		Arduino		Correct?	Fubarino	Correct?		
+
+oSigmaFVec	100 100		1.11 ms		2.90 s		No reaction
+		10 10 (l 3)	negative	0.40 s		react to yes
+								but unsure			
+		20 20 (l 100)	9.89 ms		1.20 s		no react	
+fib		20		0.80 ms		1.20 min
+		30		82.3 ms		2.35 min
+		20 (loop 10)	10.4 ms		13 s		yes
+
+
+fact		20 (l 2)	
+
+oPgcd		50 40 (l 10000)	1.51 ms		3 s		no
+		40 70 (l 10000) 09.7 ms		6 s		no
+		500 32 (l 20000)5.58 ms		15 s		no
+
+
+oQueens		3 (l 10)	10.9ms		5s		no react
+		3 (l 1000)	0.10s		5s 		no react		
+
+
+tailcalls16	10000		0.006 s		5s		yes
+
+Takc		3 (l 2)		0.02 s		42 s		yes
+		3 (l 10)	0.08 s		2,50 min	yes
+
+Taku		3 (l 100)	1.75 s		> 5 min	
+		3 (l 2)		0.06 s		2,20 min	yes
+
+
+Programs qui n'ont pas l'air de tourner correctement sur Arduino et qui renvoie un time erroné sur PC
+oApply
+oDeriv
+
+
+test_eval == unknown module Eval
