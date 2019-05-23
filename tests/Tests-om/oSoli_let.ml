@@ -1,3 +1,10 @@
+open Avr;;
+
+pin_mode PIN11 OUTPUT;;
+pin_mode PIN10 OUTPUT;;
+pin_mode PIN9 OUTPUT;;
+pin_mode PIN8 OUTPUT;;
+
 let incr x = x:=!x+1;;
 
 
@@ -73,7 +80,20 @@ let rec solve m =
 
 
 
-solve 40;;
+let main() =
+  let x = ref true in 
+  for i = 1 to 2 do 
+    x := solve 1
+  done;   (* 2 820 000 appels *)
+
+  if !x = solve 1 then digital_write PIN9 HIGH else digital_write PIN8 HIGH;;
+
+
+delay 2000;;
+digital_write PIN11 HIGH;;
+main () ;; 
+digital_write PIN10 HIGH;; 
+
 
 (*
 .........
